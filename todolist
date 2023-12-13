@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+     <style>
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: whitesmoke;
+      color: #333;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color:white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 80px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 4px;
+    }
+
+    .error {
+      color: red;
+      margin-top: -8px;
+      margin-bottom: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+
+    
+</style>
+</head>
+<body>
+    <header><h1>Todo list<h1></header>
+
+<div ng-app="mymodule" ng-controller="myController" class="todo-container">
+
+    <input type="text" ng-model="task">
+    <button ng-click="addTask()" class="addTask">Add Task</button>
+   
+<form>
+    <ol>
+        <li ng-repeat="t in tasks">
+            <span ng-hide="t.isEditing">{{t.text}}</span>
+            <input ng-show="t.isEditing" type="text" ng-model="t.text">
+            <button class="edit-button" ng-click="editTask(t)">Edit</button>
+            <button class="delete-button" ng-click="deleteTask($index)">Delete</button>
+        </li>
+    </ol>
+</form>
+</div>
+
+<script>
+    var app = angular.module('mymodule', []);
+    app.controller('myController', function($scope) {
+        $scope.tasks = [];
+
+        $scope.addTask = function() {
+            if ($scope.task) {
+                $scope.tasks.push({text: $scope.task, isEditing: false});
+                $scope.task = '';
+            }
+        };
+
+        $scope.deleteTask = function(index) {
+            $scope.tasks.splice(index, 1);
+        };
+
+        $scope.editTask = function(task) {
+            task.isEditing = !task.isEditing;
+        };
+    });
+</script>
+<footer>aniket borawake</footer>
+</body>
+</html>
