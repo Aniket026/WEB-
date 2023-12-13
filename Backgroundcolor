@@ -1,0 +1,111 @@
+<!doctype html>
+<head>
+<title>navbar</title>
+</head>
+<style>
+form{
+font-size:20px;
+text-align:center;
+
+}
+input{
+margin:10px;
+}
+#customers{
+border:2px solid #ddd;
+width:100%;
+margin-top:20px;
+
+}
+#customers th,#customers td{
+border:2px solid #ddd;
+padding:8px;
+text-align:center;
+}
+#customers tr:hover{
+background:yellow;
+}
+h1,h4{
+text-align:center;
+}
+h5{
+ border:2px solid #ddd;
+ display:inline;
+ margin-left:630px;
+ border-radius:15px;
+}
+h5:hover{
+cursor:pointer;
+border:3px solid black;
+background:yellow;
+}
+div{
+text-align:center;
+}
+
+</style>
+<body>
+<h1>Tata Consultancy Services</h1>
+<h4>We can build your future</h4>
+<h5>Our Employyes</h5>
+<table id="customers";>
+<tr>
+<th>Company</th>
+<th>name</th>
+<th>Contry</th>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+<tr>
+<td>TCS</td>
+<td>krish</td>
+<td>India</td>
+</tr>
+</table>
+<form action="" class="form">
+<input type="color" name="box3" id="color">sum<br>
+<input type="button" value="change color"onclick="calsum()"><br>
+</form>
+<br>
+<script type="text/javascript">
+function calsum()
+{
+ let v=document.getElementById("color").value;
+ document.body.style.backgroundColor=v;
+ }
+</script>
+</body>
+</html>
