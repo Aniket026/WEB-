@@ -1,6 +1,9 @@
-<p>package com.text;
+package com.test;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,18 +34,26 @@ public class first extends HttpServlet {
         String pass=request.getParameter("pass");
         System.out.println(name);
         System.out.println(pass);
+        System.out.println("Welcome to Servlet");
+         try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","admin");
+         if(con!=null) {
+         
+                 System.out.println("Connection is established");
+         }
+         else
+         {
+         
+            System.out.println("Error in connection");
+         }
+         }
+           catch(Exception e) {
+           System.out.println(e);
+         }
     }
 
 }
-
-
-</p>
-
-
---------------------------
-
-
-
 
 
 
