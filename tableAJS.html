@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Table</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+  <h2>AngularJS Table</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in people">
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form ng-submit="addPerson()">
+    <label>Name:</label>
+    <input type="text" ng-model="newPerson.name" required>
+
+    <label>Age:</label>
+    <input type="number" ng-model="newPerson.age" required>
+
+    <button type="submit">Add Person</button>
+  </form>
+</div>
+
+<script>
+  angular.module('myApp', [])
+    .controller('myCtrl', function ($scope) {
+      $scope.people = [
+        { name: 'John', age: 25 },
+        { name: 'Jane', age: 30 },
+        { name: 'Bob', age: 22 }
+      ];
+
+      $scope.newPerson = {};
+
+      $scope.addPerson = function () {
+        $scope.people.push(angular.copy($scope.newPerson));
+        $scope.newPerson = {};
+      };
+    });
+</script>
+
+</body>
+</html>
