@@ -135,3 +135,16 @@
 </html>
 
 
+
+
+----------------------------
+ openNewPage();
+                return false;
+            
+        }
+        function openNewPage() {
+    // Replace 'newpage.html' with the actual name of your HTML file
+                    window.location.href = 'about.html';
+             }
+
+
